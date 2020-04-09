@@ -2,6 +2,8 @@
 
 > A YouTube bot that will update the video title to match the view count
 
+![screenshot](./github/screenshot.png)
+
 This code was inspired by a [Tweet](https://twitter.com/tomscott/status/1247178247437078529) by Tom Scott that referenced a YouTube video who’s title seemed to automagically match the view count. This is a Node.js example of how to do this.
 
 Here’s the original YouTube video: [https://www.youtube.com/watch?v=BxV14h0kFs0](https://www.youtube.com/watch?v=BxV14h0kFs0)
