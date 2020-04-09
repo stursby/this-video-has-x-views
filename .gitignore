@@ -1,0 +1,5 @@
+node_modules
+client_id.json
+token.json
+*.log
+.DS_Store
