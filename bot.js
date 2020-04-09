@@ -5,8 +5,8 @@ const { readJSON, writeJSON } = require('fs-extra')
 
 // Constants
 const SCOPES = ['https://www.googleapis.com/auth/youtube']
-const TOKEN = 'token.json'
-const CLIENT_ID = 'client_id.json'
+const TOKEN = `${__dirname}/token.json`
+const CLIENT_ID = `${__dirname}/client_id.json`
 const YOUTUBE_VIDEO_ID = '17uGdxLtas0'
 
 // YouTube
