@@ -2,56 +2,70 @@
 
 > A YouTube bot that will update the video title to match the view count
 
-## Setup
+This code was inspired by a [Tweet](https://twitter.com/tomscott/status/1247178247437078529) by Tom Scott that referenced a YouTube video who’s title seemed to automagically match the view count. This is a Node.js example of how to do this.
 
-[TODO]
+Here’s the original YouTube video: [https://www.youtube.com/watch?v=BxV14h0kFs0](https://www.youtube.com/watch?v=BxV14h0kFs0)
 
-- clone
-- install node deps
+And here’s my copy: [https://www.youtube.com/watch?v=17uGdxLtas0](https://www.youtube.com/watch?v=17uGdxLtas0)
 
-### Setup YouTube API
+## Project Setup
 
-A lof of the code is copied over from [https://developers.google.com/youtube/v3/quickstart/nodejs](https://developers.google.com/youtube/v3/quickstart/nodejs).
+### Clone the repo locally
 
-1. Log into the Google Developers Console:
+```bash
+git clone https://github.com/stursby/this-video-has-x-views.git && cd this-video-has-x-views
+```
+
+### Install the dependencies (via Yarn, or npm)
+
+```
+yarn
+# npm install
+```
+
+## Setup YouTube API
+
+A lof of the code is copied over from [https://developers.google.com/youtube/v3/quickstart/nodejs](https://developers.google.com/youtube/v3/quickstart/nodejs)
+
+#### 1. Log into the Google Developers Console:
 
 https://console.developers.google.com/
 
-2. Create New Project
+#### 2. Create New Project
 
 On the right side you should see a button to create a new project.
 
 I'll name mine "This video has x views"
 
-Next, click "Create".
+Next, click **"Create"**.
 
-3. Enable the YouTube Data API v3
+#### 3. Enable the YouTube Data API v3
 
-Click the "Enable APIs and Services" button
+Click the **"Enable APIs and Services"** button
 
-Search for "YouTube" and then enable the "YouTube Data API v3"
+Search for **"YouTube"** and then enable the **"YouTube Data API v3"**
 
-4. Generate Credentials
+#### 4. Generate Credentials
 
-Click the "Create Credentails" button and the select the following:
+Click the **"Create Credentails"** button and the select the following:
 
-Which API are you using?
+_Which API are you using?_
 
 - YouTube Data API v3
 
-Where will you be calling the API from?
+_Where will you be calling the API from?_
 
 - Other UI (eg: Windows, CLI tool)
 
-What data will you be accessing?
+_What data will you be accessing?_
 
 - User data
 
-5. Set up consent screen
+#### 5. Set up consent screen
 
-Select "External" for the User Type
+Select **"External"** for the User Type
 
-Fill out your Application Name, then hit "Save" at the very bottom
+Fill out your Application Name, then hit **"Save"** at the very bottom
 
 Rename the file `client_id.json`
 
