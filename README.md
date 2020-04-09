@@ -10,6 +10,8 @@ Here’s the original YouTube video: [https://www.youtube.com/watch?v=BxV14h0kFs
 
 And here’s my copy: [https://www.youtube.com/watch?v=17uGdxLtas0](https://www.youtube.com/watch?v=17uGdxLtas0)
 
+For now, my script is running as a cron job ervery minute (which should keep it up-to-date enough for this demo 😜)
+
 ## Project Setup
 
 ### Clone the repo locally
@@ -80,3 +82,27 @@ If this is the first time running the bot, it you'll be prompted in the CLI to v
 Once you accept all the app permissions, you'll be give a code. Enter that back into your CLI.
 
 If successful, your video title was just updated!
+
+### Cron job
+
+To automatically run the bot, you can setup a cron job that calls the script.
+
+On mac, to test locally, you can run the following:
+
+```bash
+crontab -e
+```
+
+Next you'll need to enter your task (I use [https://crontab.guru/](https://crontab.guru/) for complex sytax). For example, let’s run the bot every 5 minutes:
+
+```bash
+*/5 * * * *   node /some/full/path/to/project/bot.js &> /dev/null
+```
+
+Let’s break down those 3 parts:
+
+1. The frequency to run the bot ([every 5 minutes](https://crontab.guru/every-5-minutes))
+
+2. Tell `node` to execute the `bot.js` file include the **full system path**
+
+3. The `&> /dev/null` part just tells the system not to ouput the console message
