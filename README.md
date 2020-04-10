@@ -10,7 +10,7 @@ Here’s the original YouTube video: [https://www.youtube.com/watch?v=BxV14h0kFs
 
 And here’s my copy: [https://www.youtube.com/watch?v=17uGdxLtas0](https://www.youtube.com/watch?v=17uGdxLtas0)
 
-For now, my script is running as a cron job ervery minute (which should keep it up-to-date enough for this demo 😜)
+For now, my script is running as a cron job ervery 10 minutes (in order to stay under the 10,000 "units" per day limit).
 
 ## Project Setup
 
@@ -93,16 +93,33 @@ On mac, to test locally, you can run the following:
 crontab -e
 ```
 
-Next you'll need to enter your task (I use [https://crontab.guru/](https://crontab.guru/) for complex sytax). For example, let’s run the bot every 5 minutes:
+Next you'll need to enter your task (I use [https://crontab.guru/](https://crontab.guru/) for complex sytax). For example, let’s run the bot every 10 minutes:
 
 ```bash
-*/5 * * * *   node /some/full/path/to/project/bot.js &> /dev/null
+*/10 * * * *   node /some/full/path/to/project/bot.js &> /dev/null
 ```
 
 Let’s break down those 3 parts:
 
-1. The frequency to run the bot ([every 5 minutes](https://crontab.guru/every-5-minutes))
+1. The frequency to run the bot ([every 10 minutes](https://crontab.guru/every-10-minutes))
 
 2. Tell `node` to execute the `bot.js` file include the **full system path**
 
 3. The `&> /dev/null` part just tells the system not to ouput the console message
+
+#### YouTube API limits
+
+By defauly, YouTube gives you 10,000 "units" per day on the [API](https://developers.google.com/youtube/v3/getting-started#calculating-quota-usage).
+
+You can also calcualte your API costs [here](https://developers.google.com/youtube/v3/determine_quota_cost).
+
+So for our purposes, the two API calls are:
+
+`videos.list.statistics` = 3 units
+`videos.update.snippet` = 53 units
+
+For a total of `56` units per invocation.
+
+So, if I have a bucket of 10,000 per day, and it costs 56 units each time, I can run it ~178 times per day.
+
+With 1440 minutes in a day (1 _ 60 _ 24) divided by 178, we can safely run the bot about every 8 miutes. We'll round up to 10 to be safe!
