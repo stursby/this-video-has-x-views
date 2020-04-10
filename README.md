@@ -10,7 +10,7 @@ Here’s the original YouTube video: [https://www.youtube.com/watch?v=BxV14h0kFs
 
 And here’s my copy: [https://www.youtube.com/watch?v=17uGdxLtas0](https://www.youtube.com/watch?v=17uGdxLtas0)
 
-For now, my script is running as a cron job ervery 10 minutes (in order to stay under the 10,000 "units" per day limit).
+For now, my script is [running as a cron job](#cron-job) ervery 10 minutes (in order to stay under the [10,000 "units" per day limit](#youtube-api-limits)).
 
 ## Project Setup
 
@@ -115,11 +115,12 @@ You can also calcualte your API costs [here](https://developers.google.com/youtu
 
 So for our purposes, the two API calls are:
 
-`videos.list.statistics` = 3 units
-`videos.update.snippet` = 53 units
+1. `videos.list.statistics` = 3 units
+
+2. `videos.update.snippet` = 53 units
 
 For a total of `56` units per invocation.
 
 So, if I have a bucket of 10,000 per day, and it costs 56 units each time, I can run it ~178 times per day.
 
-With 1440 minutes in a day (1 _ 60 _ 24) divided by 178, we can safely run the bot about every 8 miutes. We'll round up to 10 to be safe!
+With 1440 minutes in a day divided by 178, we can safely run the bot about every 8 miutes. We'll round up to 10 to be safe!
